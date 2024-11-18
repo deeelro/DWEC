@@ -1,0 +1,22 @@
+BOM (Browser Object Model) 
+Permite que JS se comunique con el navegador obteniendo y manipulando sus caracteristicas.
+
+WINDOW --> DOM, BOM, JavaScript
+
+Es un objeto global para el codigo JavaScript
+Representa una ventana abierta en un navegador
+Si una ventana tiene etiquetas de tipo <iframe> el navegador crea un objeto window para el html inicial y uno para cada <iframe>
+Todos los objetos, funciones, variables son miembros del objeto window: las funciones son metodos del objeto window; las variables globales y el dom son propiedades.
+No todos los métodos sirven para todos los navegadores: hay que comprobar la compatibilidad
+
+
+Propiedades de window:
+
+name: representa el nombre de la ventana
+outerWidth y outerHeight: son el ancho y alto de la ventana incluyendo la barra de herramientas y la de scroll
+
+used to determine the size of the browser window
+    window.innerHeight - the inner height of the browser window (in pixels)
+    window.innerWidth - the inner width of the browser window (in pixels)
+
+reside, move, close

@@ -1,0 +1,62 @@
+<!--
+OBJETO WINDOW
+CARACTERISTICAS:
+- Es un objeto global para el codigo JavaScript
+- Representa una ventana abierta en un navegador
+- Si una ventana tiene etiquetas de tipo <iframe> el navegador crea un objeto window para el html inicial y uno para cada <iframe>
+- Todos los objetos, funciones, variables son miembros del objeto window: las funciones son metodos del objeto window; las variables globales y el dom son propiedades.
+- No todos los métodos sirven para todos los navegadores: hay que comprobar la compatibilidad
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p id="ventana"></p>
+
+    <script>
+        window.name = "Ventana principal";
+        var texto = "";
+        texto += "<br>Nombre de la ventana: " + window.name + "\n";
+
+        texto += "<br>Ancho externo: " + window.outerWidth + "\n";
+        texto += "<br>Alto externo: " + window.outerHeight + "\n";
+
+        texto += "<br>Ancho interno: " + window.innerHeight + "\n";
+        texto += "<br>Alto interno: " + window.innerHeight + "\n";
+
+        texto += "<br>Scroll horizontal: " + window.pageXOffset + "\n";
+        texto += "<br>Scroll vertical: " + window.pageYOffset + "\n";
+
+        texto += "<br>URL: " + window.location + "\n";
+
+        texto += "<br>Distancia borde izquierdo de pantalla al borde izquierdo de la ventana: " + window.screenX + "\n";
+        texto += "<br>Distancia borde superior de pantalla al borde superior de la ventana: " + window.screenY + "\n";
+
+
+        document.getElementById("ventana").innerHTML = texto;
+
+        //METODOS DE WINDOW --> hay que declarar la variable globalmente
+
+        var miVentana
+        //open(<url>, <nombre>, <especificaciones>)
+        function crearVentana() {
+            miVentana = window.open("https://www.google.es", "Ventana de Google", "width=500, height=500"); //abre una ventana nueva
+        }
+
+
+
+    </script>
+
+    <button onclick="crearVentana()">Crear ventana</button>
+    <!-- llama a la funcion crearVentana() al pulsar el boton -->
+</body>
+
+</html>

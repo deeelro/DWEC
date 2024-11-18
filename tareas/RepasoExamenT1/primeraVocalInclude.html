@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Primera vocal con includes</h1>
+    <input type="text" id="texto" placeholder="Introduce un texto">
+    <button onclick="buscarVocal()">Buscar vocal</button>
+    <p id="resultado"></p>
+
+    <script>
+        const vocales = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
+
+        function buscarVocal() {
+            let texto = document.getElementById("texto").value;
+            let primeraVocal = null;
+            let posicion = -1;
+            let longitudTexto = texto.length;
+            for (let i = 0; i < longitudTexto; i++) {
+                if (vocales.includes(texto[i])) {
+                    primeraVocal = texto[i];
+                    posicion = i;
+                    break; // Terminamos el bucle al encontrar la primera vocal
+                }
+            }
+
+            if (primeraVocal) {
+                document.getElementById("resultado").innerHTML = `La primera vocal es "${primeraVocal}" y está en la posición ${posicion}`;
+            } else {
+                document.getElementById("resultado").innerHTML = "No se ha encontrado ninguna vocal";
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

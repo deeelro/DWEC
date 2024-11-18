@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+
+    <h1>Generador de paseos</h1>
+    <br>
+    <p>¿Cuantos minutos tienes?</p>
+    <input type="text" id="minutos">
+    <input type="button" value="Crear paseo" onclick="crearPaseo()">
+    <p id="parrafo1"></p>
+
+    <script>
+
+        let direcciones = ["n", "s", "e", "o"]; //Creo un array con las posibles direcciones
+        let longitudArray = tiempoEnMinutos.length()
+
+        let minutos = document.getElementById("minutos")
+
+        function crearPaseo(minutos) {
+            const mensaje = document.getElementById("parrafo1"); //guardo parrafo1 en la variable mensaje
+
+
+            //CONTROL DE ERRORES
+            try {
+                if (minutos < 8) throw "El paseo debe ser mayor de 8 minutos";
+                if (minutos > 22) throw "El paseo debe ser menor de 22 minutos";
+
+            } catch (error) {
+                mensaje.innerHTML = "Error: " + error; //añado el mensaje de error al parrafo si se cumple la condición del error
+                return; // detiene la ejecución de la funcion si hay un error
+            }
+
+
+
+
+            //GENERACION DE UN ARRAY CON LETRAS ALEATORIAS (SI EL USUARIO INTRODUCE EL NUMERO 10, HABRA 10 LETRAS)
+            // generacion de un array en el que se eligen aleatoriamente las direcciones, una direccion por cada valor de minutos
+
+            let arrayPaseo = [];
+            for (let i = 0; i < minutos; i++) {
+                let direccion = Math.floor(Math.random() * direcciones.length);
+                arrayPaseo.push(direcciones[direccion]);
+            }
+
+
+
+
+
+
+
+            /* let arrayPaseo = [];
+            for (let i = 0; i < minutos; i++) {
+                let direccion = Math.floor(Math.random() * direcciones.length);
+                arrayPaseo.push(direcciones[direccion]);
+            } */
+
+
+
+
+            mensaje.innerHTML = "El array con las direcciones de tu paseo es: " + direcciones;
+
+
+        }
+
+
+    </script>
+</body>
+
+</html>

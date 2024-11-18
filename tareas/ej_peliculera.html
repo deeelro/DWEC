@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let nombreCliente = prompt('Introduce tu nombre');
+        while (typeof (nombreCliente) !== 'string' || nombreCliente == null) {
+            nombreCliente = prompt('Introduce un nombre válido');
+        }
+
+        let edadCliente = prompt('Introduce tu edad');
+        while (edadCliente === null || isNaN(edadCliente)) {
+            edadCliente = prompt('Introduce una edad válida');
+        }
+
+        const peliculas = ["SPIDERMAN", "SUPERMAN", "DRAGON BALL SUPER", "LA ERA DEL HIELO", "18VIDEOS"]
+        let peliculaElegida = prompt('Elige una película de la lista: ' + peliculas.join(', '))?.toUpperCase();
+        while (peliculaElegida === null || !peliculas.includes(peliculaElegida) || peliculaElegida === '') {
+            peliculaElegida = prompt('Introduce una película válida');
+        }
+
+        if (edadCliente <= 17 && peliculaElegida === '18VIDEOS') {
+            alert('No tienes permiso para ver esta película');
+        } else {
+            alert(`Hola ${nombreCliente}, disfruta de la película ${peliculaElegida}`);
+        }
+
+
+    </script>
+</body>
+
+</html>

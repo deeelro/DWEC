@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+
+<body>
+
+    <h1>Ejercicio 2</h1>
+
+    <script>
+
+        function crearPiramide() { //creo una funcion que pintara la piramide con los datos que se reciban
+            let numeroEnLaFila = Number(prompt("Introduce el numero que se repetira")); // pregunto al usuario el numero que quiere usar para hacer la piramide y lo almaceno en la variable numeroEnLaFila
+            document.write('<pre>'); // preformateo el texto para que no se descoloque la piramide
+
+            for (i = numeroEnLaFila; i >= 1; i--) { // empieza en el numero elegido y durará hasta el 1, cada vuelta restara un numero al inicial para hacerlo descendente
+                for (j = 1; j <= numeroEnLaFila - i; j++) { // la operacion numeroEnLaFila - i es para que se vaya reduciendo el espacio en cada fila.
+                    document.write("&nbsp;"); // imrpime un espacio en blanco al inicio y al final 
+                }
+                for (k = 1; k <= i; k++) { // se repite el numero que se introduce
+                    document.write(i); // imprimo el numero del indice hasta q
+                }
+                document.write("<br>"); // salto de linea
+
+            }
+        }
+        crearPiramide(); //llamo a la funcion
+
+
+
+    </script>
+</body>
+
+</html>

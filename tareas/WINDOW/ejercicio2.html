@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos del navegador. Window</title>
+</head>
+
+<body>
+
+    <p id="ventana"></p>
+
+    <script>
+        window.name = "Mi ventana";
+        var texto = "";
+
+        texto += "<br/>Nombre:  " + window.name;
+        texto += "<br/>Ancho externo:  " + window.outerWidth;
+        texto += "<br/>Alto externo:  " + window.outerHeight;
+        texto += "<br/>Ancho interno:  " + window.innerWidth;
+        texto += "<br/>Alto interno:  " + window.innerHeight;
+        texto += "<br/>Scroll Vertical:  " + window.pageXOffset;
+        texto += "<br/>Scroll Horizontal:  " + window.pageYOffset;
+        texto += "<br/>Ubicación:  " + window.location;
+        texto += "<br/>Distancia izquierda:  " + window.screenX;
+        texto += "<br/>Distancia arriba:  " + window.screenY;
+
+        document.getElementById("ventana").innerHTML = texto;
+        //Métodos de window
+
+        var miVentana;
+        //open(<url>, <nombre>, <especificaciones>)
+
+        function crearVentana() {
+            /*  miVentana = window.open("http://www.google.com", "Google", "width=1920, height=1080, top=200, left=200"); */
+            miVentana = window.open("", "", "width=300, height=150, top=200, left=200");
+        }
+
+        function cerrarVentana() {
+            miVentana.close();
+        }
+
+        function redimensionarVentana() {
+            miVentana.resizeBy(100, 100);
+            miVentana.focus();
+        }
+
+        function moverVentana() {
+            miVentana.moveBy(100, 100);
+        }
+
+
+
+        /*
+            close()
+            resizeBy(<ancho>, <alto>)
+            moveBy(<ancho>, <alto>)
+        */
+
+    </script>
+
+    <button onclick=crearVentana()> Abrir ventana</button>
+    <button onclick=cerrarVentana()> Cerrar ventana</button>
+    <button onclick=redimensionarVentana()>Redimensionar Ventana</button>
+    <button onclick=moverVentana()>Mover Ventana</button>
+
+</body>
+
+</html>
