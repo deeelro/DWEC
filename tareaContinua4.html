@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 7 pasos</title>
+</head>
+
+<body>
+    <script>
+
+
+        function Persona(nombre, telefono, correo) {
+            this.nombre = nombre;
+            this.telefono = telefono;
+            this.correo = correo;
+
+        }
+        const persona1 = new Persona('Maxwell Wright', '(0191) 719 6495', 'Curabitur.egestas.nunc@nonummyac.co.uk')
+        const persona2 = new Persona('Raja Villarreal', '0866 398 2895', 'posuere.vulputate@sed.com')
+        const persona3 = new Persona('Helen Richards', '0800 1111', 'libero@convallis.edu')
+
+        //Crear array const miArray = [valor1, vakor2, valor3]
+        const contactos = [persona1, persona2, persona3]
+
+        contactos.push(persona4 = new Persona('Maisie Haley', '0913 531 3030', 'risus.Quisque@urna.ca'))
+
+
+        let opcion = prompt("Ingrese una opción: \n1. Ver primer contacto \n2. Ver último contacto \n3. Agregar nuevo contacto")
+
+        switch (opcion) {
+            case "1":
+                alert(`Primer contacto: \nNombre: ${contactos[0].nombre} \nTeléfono: ${contactos[0].telefono} \nCorreo: ${contactos[0].correo}`)
+
+                break;
+
+            case "2":
+                alert(`Último contacto: \nNombre: ${contactos[contactos.length - 1].nombre} \nTelefono: ${contactos[contactos.length - 1].telefono} \nCorreo: ${contactos[contactos.length - 1].correo}`)
+                break;
+
+            case "3":
+                let nuevoContacto = {
+                    nombre: prompt("Ingrese su nombre"),
+                    telefono: prompt("Ingrese su teléfono"),
+                    correo: prompt("Ingrese su correo")
+                }
+                if (nuevoContacto.nombre && nuevoContacto.telefono && nuevoContacto.correo) {
+                    contactos.push(nuevoContacto);
+                    alert('Contacto añadido')
+
+                }
+                else {
+                    alert('Faltan datos. El contacto no se ha añadido')
+
+                }
+                break;
+        }
+
+
+
+    </script>
+</body>
+
+</html>
