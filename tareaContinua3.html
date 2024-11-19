@@ -26,6 +26,15 @@
 
         contactos.push(persona4 = new Persona('Maisie Haley', '0913 531 3030', 'risus.Quisque@urna.ca'))
 
+
+        let nuevoContacto = {
+            nombre: prompt("Ingrese su nombre"),
+            telefono: prompt("Ingrese su teléfono"),
+            correo: prompt("Ingrese su correo")
+        }
+
+        contactos.push(nuevoContacto);
+
         alert(`Primer contacto: \nNombre: ${contactos[0].nombre} \nTeléfono: ${contactos[0].telefono} \nCorreo: ${contactos[0].correo}`)
 
         alert(`Último contacto: \nNombre: ${contactos[contactos.length - 1].nombre} \nTelefono: ${contactos[contactos.length - 1].telefono} \nCorreo: ${contactos[contactos.length - 1].correo}`)
