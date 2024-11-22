@@ -1,0 +1,90 @@
+<!--
+6.- Trata de organizar el código de tu programa (¿quitando switch?) usando funciones. 
+Define y llama a tres funciones en los lugares apropiados:
+• showContact: la función debe tomar dos argumentos; el primero es la lista de 
+contactos y el segundo es el número de índice del contacto a mostrar; dentro de 
+la función, verifica si se pasan los argumentos correctos, es decir, si los contactos 
+son un array (utiliza la construcción instanceofArray para esto).
+• showAllContacts: la función debe tomar un argumento, la lista de contactos; 
+dentro de la función, verifica si el argumento dado es un array.
+• addNewContact: la función debe tomar cuatro argumentos, una lista de 
+contactos y los datos del nuevo contacto, es decir: nombre, teléfono y número; 
+antes de agregar un nuevo contacto, verifica si el argumento pasado es un array 
+y si los datos del nuevo contacto tienen algún valor.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 7 pasos</title>
+</head>
+
+<body>
+    <script>
+
+        function Persona(nombre, telefono, correo) {
+            this.nombre = nombre;
+            this.telefono = telefono;
+            this.correo = correo;
+
+        }
+
+        const persona1 = new Persona('Maxwell Wright', '(0191) 719 6495', 'Curabitur.egestas.nunc@nonummyac.co.uk')
+        const persona2 = new Persona('Raja Villarreal', '0866 398 2895', 'posuere.vulputate@sed.com')
+        const persona3 = new Persona('Helen Richards', '0800 1111', 'libero@convallis.edu')
+
+        //Crear array const miArray = [valor1, vakor2, valor3]
+        const contactos = [persona1, persona2, persona3]
+
+        //MUESTRA UN CONTACTO 
+        function showContact(contactos, indice) { //Función a la que paso el array de contactos y el índice del contacto a mostrar
+            if (contactos instanceof Array && indice >= 0 && indice < contactos.length) { //Si contactos es un array y el índice está dentro del rango
+                //Muestro los datos del contacto en el documento
+                document.write("Contacto:<br>" + contactos[indice].nombre + "<br>" + contactos[indice].telefono + "<br>" + contactos[indice].correo + "<br><br>");
+            } else {
+                alert("No existe el contacto.");
+            }
+        }
+
+        //MUESTRA TODOS LOS CONTACTOS
+        function showAllContacts(contactos) { //Función a la que paso el array de contactos
+            if (contactos instanceof Array) { //Si contactos es un array
+                for (let i = 0; i < contactos.length; i++) { //Recorro el array de contactos
+                    //Muestro los datos de cada contacto en el documento
+                    document.write("Contacto:<br>" + contactos[i].nombre + "<br>" + contactos[i].telefono + "<br>" + contactos[i].correo + "<br><br>");
+                }
+            } else {
+                alert("No se hay contactos.");
+            }
+        }
+
+        //AÑADE UN NUEVO CONTACTO
+        function addNewContact(contactos, nombre, telefono, correo) { //Función a la que paso el array y los datos del nuevo contacto
+            if (contactos instanceof Array && nombre && telefono && correo) { //Si contactos es un array y los datos del nuevo contacto están rellenos
+                let nuevoContacto = { //Creo un nuevo contacto (objeto) con los datos pasados
+                    nombre: nombre,
+                    telefono: telefono,
+                    correo: correo
+                };
+                contactos.push(nuevoContacto); //Añado el nuevo contacto al final del array de contactos
+                alert("¡Contacto añadido!");
+            } else {
+                alert("Error al añadir el contacto.");
+            }
+        }
+
+        showContact(contactos, 0); //Muestro el contacto en la posición 0
+
+        showAllContacts(contactos); //Muestro todos los contactos
+
+        addNewContact(contactos, "Ivan Del Rio", "636478503", "ivan@gmail.com"); //Añado un nuevo contacto
+
+        showAllContacts(contactos); //Muestro todos los contactos para ver si se ha añadido el nuevo contacto
+
+    </script>
+</body>
+
+</html>
